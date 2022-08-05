@@ -17,7 +17,7 @@ class RefreshAsteroidsWorker @AssistedInject constructor(
 ): CoroutineWorker(context, workerParams) {
 
     override suspend fun doWork(): Result = try {
-        repository.refreshAsteroidsData()
+        repository.dailyRefreshAsteroidsData()
         Result.success()
     }catch (e: HttpException) {
         Result.retry()

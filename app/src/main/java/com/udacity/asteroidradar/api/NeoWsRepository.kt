@@ -19,19 +19,25 @@ class NeoWsRepository @Inject constructor(
 
     private val retrofit = NeoWsApi.retrofitService
 
-    val asteroids = dao.asteroids
+    val nextWeekAsteroids = dao.nextWeekAsteroids
+    val todayAsteroids = dao.todayAsteroids
+    val savedAsteroid = dao.savedPastAsteroids
 
     /**
      * Deletes all the data in the cache then save an updated one
      */
-    suspend fun refreshAsteroidsData() {
-        val calendar = Calendar.getInstance()
-        val currentTime = calendar.time
-        val dateFormat = SimpleDateFormat(Constants.API_QUERY_DATE_FORMAT, Locale.getDefault())
-        val todayFormatted = dateFormat.format(currentTime)
-
+    suspend fun dailyRefreshAsteroidsData() {
         withContext(ioDispatcher) {
-            dao.deleteAllPast(todayFormatted)
+            dao.deleteAllPast()
+            getNextWeekAsteroidsData()
+        }
+    }
+
+    /**
+     * get the next 7 days and store them
+     */
+    suspend fun getNextWeekAsteroidsData() {
+        withContext(ioDispatcher) {
             val asteroidsString = retrofit.getAsteroidsAsync().await()
             val asteroids = parseAsteroidsJsonResult(JSONObject(asteroidsString))
             dao.insert(asteroids)

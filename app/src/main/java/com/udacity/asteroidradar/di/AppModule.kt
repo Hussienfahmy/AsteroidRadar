@@ -31,8 +31,4 @@ object AppModule {
     @Singleton
     @Provides
     fun provideIoDispatcher() = Dispatchers.IO
-
-    @Singleton
-    @Provides
-    fun provideWorkManager(@ApplicationContext context: Context) = WorkManager.getInstance(context)
 }
