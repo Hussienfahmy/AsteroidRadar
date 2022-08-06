@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next_week_asteroids">اعرض كويكبات الاسبوع القادم</string>
+    <string name="today_asteroids">اعرض كويكبات اليوم</string>
+    <string name="saved_asteroids">اعرض الكويكبات المحفوطة</string>
+    <string name="close_approach_data_title">اقرب تاريخ متوقع</string>
+    <string name="absolute_magnitude_title">القيمة الفعلية</string>
+    <string name="estimated_diameter_title">القطر المتوقع</string>
+    <string name="relative_velocity_title">السرعة النسبية</string>
+    <string name="distance_from_earth_title">المسافة من كوكب الارض</string>
+    <string name="image_of_the_day">صورة اليوم</string>
+    <string name="astronomical_unit_explanation">وحدة لقياس المسافة وقيمة الوحدة تمثل المسافة بين الشمس والارض وتساوي حوالي 150 كيلومتر او 93 ميل</string>
+    <string name="astronomical_unit_explanation_button">تعريف وحدة الثياس الفلكية</string>
+    <string name="potentially_hazardous_asteroid_image">صورة لكويكب يحتمل ان يكون خطير</string>
+    <string name="not_hazardous_asteroid_image">صورة لكويكب ليس خطير</string>
+    <string name="asteroid_not_hazard">الكويكب ليس خطير</string>
+    <string name="asteroid_hazard">الكويكب خطير</string>
+    <string name="learn_more_about_the_unit">اعرف المزيد حول الوحدة</string>
+    <string name="no_picture_today">لا يوجد صور اليوم</string>
+</resources>
