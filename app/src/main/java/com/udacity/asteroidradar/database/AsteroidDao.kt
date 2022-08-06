@@ -34,7 +34,7 @@ interface AsteroidDao {
         ORDER BY closeApproachDate ASC""")
     val savedPastAsteroids: LiveData<List<Asteroid>>
 
-    @Query("DELETE FROM asteroid WHERE closeApproachDate < datetime()")
+    @Query("DELETE FROM asteroid WHERE closeApproachDate < date()")
     suspend fun deleteAllPast()
 
 }
