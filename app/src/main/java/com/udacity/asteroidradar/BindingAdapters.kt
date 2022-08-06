@@ -56,6 +56,12 @@ fun RecyclerView.bindAsteroidsToRecyclerView(asteroids: List<Asteroid>?) {
 fun ImageView.bindPictureOfDay(pictureOfDay: PictureOfDay?) {
     if (pictureOfDay != null && pictureOfDay.mediaType == "image") {
         contentDescription = pictureOfDay.title
-        Picasso.get().load(pictureOfDay.url).into(this)
+        Picasso.get()
+            .load(pictureOfDay.url)
+            .placeholder(R.drawable.placeholder_picture_of_day)
+            .error(R.drawable.ic_baseline_error_24)
+            .into(this)
+    }else {
+        contentDescription = context.getString(R.string.no_picture_today)
     }
 }

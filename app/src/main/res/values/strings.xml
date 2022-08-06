@@ -22,4 +22,5 @@
     <string name="asteroid_not_hazard">Asteroid is not Hazard</string>
     <string name="asteroid_hazard">Asteroid is Potentially Hazard</string>
     <string name="learn_more_about_the_unit">Learn More About the unit</string>
+    <string name="no_picture_today">No picture for today</string>
 </resources>
