@@ -5,10 +5,12 @@ import android.view.*
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : Fragment(), MenuProvider {
@@ -29,6 +31,13 @@ class MainFragment : Fragment(), MenuProvider {
                 AsteroidAdapter(AsteroidAdapter.OnAsteroidClickListener { asteroid ->
                     findNavController().navigate(MainFragmentDirections.actionShowDetail(asteroid))
                 })
+
+            swipeRefresh.setOnRefreshListener {
+                lifecycleScope.launch {
+                    this@MainFragment.viewModel.refreshNextWeekData()
+                    swipeRefresh.isRefreshing = false
+                }
+            }
         }
 
         requireActivity().addMenuProvider(this, viewLifecycleOwner)

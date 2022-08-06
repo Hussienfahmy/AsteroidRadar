@@ -39,8 +39,12 @@ class MainViewModel @Inject constructor(
             _pictureOfDay.value = repository.getPicOTheDay().getOrNull()
 
             // when user open the app fetch next week data
-            repository.getNextWeekAsteroidsData()
+            refreshNextWeekData()
         }
+    }
+
+    suspend fun refreshNextWeekData() {
+        repository.getNextWeekAsteroidsData()
     }
 
     fun setFilter(filter: AsteroidFilter) {
